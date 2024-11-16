@@ -1,0 +1,11 @@
+my-nextjs-app/
+├── app/
+│   ├── layout.tsx
+│   ├── page.tsx
+│   └── globals.css
+├── components/
+├── public/
+├── styles/
+├── .gitignore
+├── package.json
+└── tsconfig.json 

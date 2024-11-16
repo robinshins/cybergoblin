@@ -1,0 +1,85 @@
+.navigation {
+  margin-top: 4rem;
+  padding: 2rem;
+  border-top: 1px solid #eaeaea;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.postList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.postLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.postItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  transition: background-color 0.2s ease;
+}
+
+.postItem:hover {
+  background-color: #e9ecef;
+}
+
+.active .postItem {
+  background-color: #e3e6f0;
+  border-left: 4px solid #4a90e2;
+}
+
+.postTitle {
+  flex: 0 0 80%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 500;
+}
+
+.postDate {
+  flex: 0 0 18%;
+  font-size: 0.9rem;
+  color: #666;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.pageLink {
+  padding: 0.5rem 1rem;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #495057;
+  transition: all 0.2s ease;
+}
+
+.pageLink:hover {
+  background-color: #e9ecef;
+}
+
+.activePage {
+  background-color: #4a90e2;
+  color: white;
+  border-color: #4a90e2;
+} 
