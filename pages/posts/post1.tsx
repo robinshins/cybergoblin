@@ -1,10 +1,14 @@
 import React from 'react';
 import styles from './Post.module.css';
 import PostNavigation from '@/components/PostNavigation/PostNavigation';
+import Link from 'next/link';
 
 const Post1 = () => {
   return (
     <div className={styles.container}>
+      <Link href="/" className={styles.homeButton}>
+      홈으로 🏠
+      </Link>
       <h1 className={styles.title}>ComfyUI를 활용한 실시간 이미지 생성 시스템 구축하기</h1>
 
       <p className={styles.paragraph}>

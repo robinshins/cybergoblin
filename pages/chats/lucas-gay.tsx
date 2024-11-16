@@ -2,11 +2,15 @@ import { useState } from 'react';
 import Image from 'next/image';
 import '@/styles/chat.css';
 import { useRouter } from 'next/router';
+import CoupangAd from '@/components/CoupangAd';
+import AdPopup from '@/components/AdPopup';
 
 interface ChatMessage {
   role: 'user' | 'assistant';
   content: string;
 }
+
+const AD_EXPIRY_KEY = process.env.NEXT_PUBLIC_AD_EXPIRY_KEY || 'cybergoblin_ad_expiry';
 
 export default function LucasGay() {
   const router = useRouter();
@@ -20,10 +24,42 @@ export default function LucasGay() {
   const [isLoading, setIsLoading] = useState(false);
   const [showResult, setShowResult] = useState(false);
   const [judgmentText, setJudgmentText] = useState('');
+  const [showAdPopup, setShowAdPopup] = useState(false);
+  const [allowOneMessage, setAllowOneMessage] = useState(false);
+
+  const checkAdExpiry = () => {
+    const expiryTime = localStorage.getItem(AD_EXPIRY_KEY);
+    if (!expiryTime) return false;
+    
+    const isValid = new Date().getTime() < parseInt(expiryTime);
+    if (!isValid) {
+      localStorage.removeItem(AD_EXPIRY_KEY);
+    }
+    return isValid;
+  };
+
+  const handleAdClick = () => {
+    const expiryTime = new Date().getTime() + (2 * 60 * 60 * 1000); // 2시간
+    localStorage.setItem(AD_EXPIRY_KEY, expiryTime.toString());
+  };
+
+  const handleClosePopup = () => {
+    setShowAdPopup(false);
+    setAllowOneMessage(true);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!userInput.trim() || isLoading) return;
+
+    if (!checkAdExpiry() && !allowOneMessage) {
+      setShowAdPopup(true);
+      return;
+    }
+
+    if (allowOneMessage) {
+      setAllowOneMessage(false);
+    }
 
     if (messages.length >= 10) {
       const errorMessage: ChatMessage = { 
@@ -199,12 +235,12 @@ export default function LucasGay() {
             onChange={(e) => setUserInput(e.target.value)}
             className="chat-input"
             placeholder="루카스봇과의 대화를 입력하세요."
-            disabled={isLoading || showResult}
+            disabled={isLoading || showResult || showAdPopup}
           />
           <button
             type="submit"
             className="send-button"
-            disabled={isLoading || showResult}
+            disabled={isLoading || showResult || showAdPopup}
           >
             전송
           </button>
@@ -213,6 +249,11 @@ export default function LucasGay() {
           본 챗봇은 AI일 뿐, 실제 인물과는 무관합니다.
         </p>
       </div>
+
+      <CoupangAd />
+      <br/>
+      <br/>
+      <br/>
 
       {showResult && (
         <div className="result-modal">
@@ -235,6 +276,13 @@ export default function LucasGay() {
             </div>
           </div>
         </div>
+      )}
+
+      {showAdPopup && (
+        <AdPopup 
+          onClose={handleClosePopup} 
+          onAdClick={handleAdClick}
+        />
       )}
     </div>
   );

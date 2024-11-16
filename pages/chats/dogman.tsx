@@ -2,11 +2,14 @@ import { useState } from 'react';
 import Image from 'next/image';
 import '@/styles/chat.css';
 import { useRouter } from 'next/router';
-
+import AdPopupButton from '@/components/AdPopupButton';
+import CoupangAd from '@/components/CoupangAd';
 interface ChatMessage {
   role: 'user' | 'assistant';
   content: string;
 }
+
+const AD_EXPIRY_KEY = process.env.NEXT_PUBLIC_AD_EXPIRY_KEY || 'cybergoblin_ad_expiry';
 
 export default function Dogman() {
   const router = useRouter();
@@ -20,10 +23,42 @@ export default function Dogman() {
   const [isLoading, setIsLoading] = useState(false);
   const [showResult, setShowResult] = useState(false);
   const [judgmentText, setJudgmentText] = useState('');
+  const [showAdPopup, setShowAdPopup] = useState(false);
+  const [allowOneMessage, setAllowOneMessage] = useState(false);
+
+  const checkAdExpiry = () => {
+    const expiryTime = localStorage.getItem(AD_EXPIRY_KEY);
+    if (!expiryTime) return false;
+    
+    const isValid = new Date().getTime() < parseInt(expiryTime);
+    if (!isValid) {
+      localStorage.removeItem(AD_EXPIRY_KEY);
+    }
+    return isValid;
+  };
+
+  const handleAdClick = () => {
+    const expiryTime = new Date().getTime() + (2 * 60 * 60 * 1000); // 2시간
+    localStorage.setItem(AD_EXPIRY_KEY, expiryTime.toString());
+  };
+
+  const handleClosePopup = () => {
+    setShowAdPopup(false);
+    setAllowOneMessage(true);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!userInput.trim() || isLoading) return;
+
+    if (!checkAdExpiry() && !allowOneMessage) {
+      setShowAdPopup(true);
+      return;
+    }
+
+    if (allowOneMessage) {
+      setAllowOneMessage(false);
+    }
 
     if (messages.length >= 10) {
       const errorMessage: ChatMessage = { 
@@ -210,9 +245,15 @@ export default function Dogman() {
           </button>
         </form>
         <p className="disclaimer">
-          본 챗봇은 재미를 위한 것이며, 실제 판별과는 무관합니다.
+          본 챗봇은 AI일 뿐, 실제 인물과는 무관합니다.
         </p>
+
       </div>
+      <CoupangAd />
+      <br/>
+      <br/>
+      <br/>
+      
 
       {showResult && (
         <div className="result-modal">
@@ -235,6 +276,15 @@ export default function Dogman() {
             </div>
           </div>
         </div>
+      )}
+
+      {showAdPopup && (
+        <AdPopupButton 
+          onClose={handleClosePopup}
+          onAdClick={handleAdClick}
+          buttonText="뉴진스 관련 제품 구경하기"
+          adLink="https://link.coupang.com/a/b0Mgqo"
+        />
       )}
     </div>
   );
