@@ -4,6 +4,10 @@ export default function Document() {
   return (
     <Html lang="ko">
       <Head>
+        <meta 
+          name="viewport" 
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-MV26KFG2WF"
