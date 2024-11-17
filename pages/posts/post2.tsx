@@ -4,6 +4,11 @@ import PostNavigation from '@/components/PostNavigation/PostNavigation';
 import Link from 'next/link';
 
 const Post2 = () => {
+  // 페이지 마운트 시 스크롤 위치 초기화
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className={styles.container}>
       <Link href="/" className={styles.homeButton}>
@@ -49,7 +54,7 @@ const Post2 = () => {
       </p>
 
       <h2 className={styles.heading2}>4. 엔터테인먼트 및 미디어</h2>
-      <h3 className={styles.heading3}>4.1 실시간 ���터랙티브 스토리��링</h3>
+      <h3 className={styles.heading3}>4.1 실시간 인터랙티브 스토리텔링</h3>
       <p className={styles.paragraph}>
         시청자의 선택에 따라 실시간으로 변화하는 애니메이션 시리즈를 제작할 수 있습니다. 시청자가 스토리의 방향을 선택하면 AI가 즉시 새로운 장면을 생성하여 보여줍니다. 이는 전통적인 선형적 스토리텔링을 넘어 완전히 새로운 형태의 인터랙티브 엔터테인먼트를 가능하게 할 것입니다.
       </p>

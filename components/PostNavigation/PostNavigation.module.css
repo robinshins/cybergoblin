@@ -27,10 +27,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 1rem;
-  border-radius: 8px;
-  background-color: #f8f9fa;
-  transition: background-color 0.2s ease;
+  padding: 10px;
 }
 
 .postItem:hover {
@@ -43,11 +40,11 @@
 }
 
 .postTitle {
-  flex: 0 0 80%;
+  flex: 1;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-weight: 500;
+  margin-right: 10px;
 }
 
 .postDate {
@@ -82,4 +79,49 @@
   background-color: #4a90e2;
   color: white;
   border-color: #4a90e2;
+}
+
+/* 모바일 화면을 위한 반응형 스타일 */
+@media screen and (max-width: 768px) {
+  .navigation {
+    width: 95%;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+  
+  .postItem {
+    padding: 8px 5px;
+    flex-wrap: wrap;
+  }
+  
+  .postTitle {
+    font-size: 13px;
+    max-width: 60%;
+    flex: 0 1 60%;
+  }
+  
+  .postDate {
+    font-size: 11px;
+    flex: 0 0 35%;
+  }
+  
+  .pagination {
+    gap: 0.25rem;
+  }
+  
+  .pageLink {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .postTitle {
+    max-width: 55%;
+    flex: 0 1 55%;
+  }
+  
+  .postDate {
+    flex: 0 0 40%;
+  }
 } 

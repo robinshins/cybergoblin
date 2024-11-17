@@ -161,19 +161,22 @@ html, body {
 
 @media (max-width: 768px) {
   .chat-buttons {
+    width: calc(100% - 2rem);
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.5rem;
-    padding: 0 0.5rem;
+    gap: 1rem;
+    padding: 0 1rem;
+    margin: 0 auto;
+  }
+
+  .chat-card {
+    width: 100%;
+    margin: 0;
   }
 
   .main-container {
     width: 100%;
   }
   
-  .chat-card {
-    min-width: unset;
-  }
-
   .chat-image {
     width: 100%;
     height: 200px;
@@ -196,8 +199,10 @@ html {
 /* 모바일 최적화 */
 @media (max-width: 640px) {
   .chat-buttons {
-    padding: 0 0.5rem;
+    width: calc(100% - 2rem);
+    grid-template-columns: repeat(2, 1fr);
     gap: 0.5rem;
+    padding: 0 1rem;
   }
 
   .chat-image {

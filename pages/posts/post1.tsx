@@ -4,6 +4,10 @@ import PostNavigation from '@/components/PostNavigation/PostNavigation';
 import Link from 'next/link';
 
 const Post1 = () => {
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className={styles.container}>
       <Link href="/" className={styles.homeButton}>
@@ -191,6 +195,7 @@ if __name__ == '__main__':
       </p>
       <PostNavigation currentPostId={1} />
     </div>
+    
   );
 };
 

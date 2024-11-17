@@ -4,6 +4,7 @@ import '@/styles/chat.css';
 import { useRouter } from 'next/router';
 import CoupangAd from '@/components/CoupangAd';
 import AdPopup from '@/components/AdPopup';
+import AdPopupButtonImage from '@/components/AdPopupButtonImage';
 
 interface ChatMessage {
   role: 'user' | 'assistant';
@@ -286,10 +287,17 @@ export default function LucasTemperature() {
       )}
 
       {showAdPopup && (
-        <AdPopup 
-          onClose={handleClosePopup} 
+        <AdPopupButtonImage
+          onClose={handleClosePopup}
           onAdClick={handleAdClick}
-        />
+          buttonText="쿠팡 방문하기"
+          adLink="https://link.coupang.com/a/b0UZSj"
+        imageUrl="https://image9.coupangcdn.com/image/retail-product-api/A00077021/192758000/208805540/main/9791192372488_L.jpg"
+      />
+        // <AdPopup 
+        //   onClose={handleClosePopup} 
+        //   onAdClick={handleAdClick}
+        // />
       )}
     </div>
   );
