@@ -24,18 +24,19 @@ html, body {
 }
 
 .site-title {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 800;
-  margin-bottom: 1rem;
+  margin-bottom: 0.3rem;
   color: #1a1a1a;
   letter-spacing: -0.025em;
 }
 
 .site-description {
-  font-size: 1.25rem;
+  font-size: 0.9rem;
   color: #4b5563;
   line-height: 1.7;
-  margin-bottom: 0;
+  margin-top: 0;
+  opacity: 0.8;
 }
 
 .social-links {
@@ -187,7 +188,12 @@ html, body {
   }
 
   .site-title {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .site-description {
+    font-size: 0.8rem;
   }
 }
 
@@ -230,7 +236,8 @@ html {
 }
 
 .dokkaebi-character {
-  width: 200px;
+  margin-top: 1rem;
+  width: 100px;
   height: auto;
   border-radius: 50%;
   animation: float 3s ease-in-out infinite;
