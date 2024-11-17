@@ -89,7 +89,9 @@ const AdPopupButtonImage = ({ onClose, onAdClick, buttonText, adLink, imageUrl }
           onClick={handleAdClick}
           style={{
             cursor: 'pointer',
-            marginBottom: '16px'
+            marginBottom: '16px',
+            maxHeight: '200px',
+            overflow: 'hidden'
           }}
         >
           <img 
@@ -98,6 +100,8 @@ const AdPopupButtonImage = ({ onClose, onAdClick, buttonText, adLink, imageUrl }
             style={{
               width: '100%',
               height: 'auto',
+              maxHeight: '200px',
+              objectFit: 'contain',
               borderRadius: '8px',
               transition: 'transform 0.2s',
             }}
