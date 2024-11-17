@@ -4,11 +4,25 @@ export default function Document() {
   return (
     <Html lang="ko">
       <Head>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-MV26KFG2WF"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-MV26KFG2WF');
+            `,
+          }}
+        />
         <meta
           httpEquiv="Content-Security-Policy"
           content="
             default-src 'self';
-            script-src 'self' 'unsafe-inline' 'unsafe-eval' https://ads-partners.coupang.com https://coupa.ng;
+            script-src 'self' 'unsafe-inline' 'unsafe-eval' https://ads-partners.coupang.com https://coupa.ng https://www.googletagmanager.com;
             style-src 'self' 'unsafe-inline';
             img-src 'self' data: blob: https: http:;
             font-src 'self' data:;
