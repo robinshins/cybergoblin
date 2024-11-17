@@ -105,7 +105,7 @@ export default function Home() {
 
         <div className="gpts-buttons">
           <a 
-            href="https://chat.openai.com/g/g-민희진봇링크" 
+            href="https://chatgpt.com/g/g-KWySUAYfe-minhyijinbos" 
             className="gpt-button minhee-button"
             target="_blank"
             rel="noopener noreferrer"
@@ -116,7 +116,7 @@ export default function Home() {
           </a>
 
           <a 
-            href="https://chat.openai.com/g/g-코인봇링크" 
+            href="https://chatgpt.com/g/g-iJW8E5FnC-koin-seonsaengnim" 
             className="gpt-button coin-button"
             target="_blank"
             rel="noopener noreferrer"
