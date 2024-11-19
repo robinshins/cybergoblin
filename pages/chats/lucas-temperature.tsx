@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import CoupangAd from '@/components/CoupangAd';
 import AdPopup from '@/components/AdPopup';
 import AdPopupButtonImage from '@/components/AdPopupButtonImage';
+import Head from 'next/head';  // Head 추가
 
 interface ChatMessage {
   role: 'user' | 'assistant';
@@ -184,6 +185,14 @@ export default function LucasTemperature() {
   };
 
   return (
+    <>
+    <Head>
+    <title>루카스 온도 판별기 - 당신의 사상은 몇 도일까요?</title>
+    <meta name="description" content="윤루카스 AI가 판별해주는 재미있는 온도 테스트! 5번의 대화로 당신의 체온을 측정해보세요." />
+    <meta property="og:title" content="루카스 온도 판별기 - 당신의 체온은 몇 도일까요?" />
+    <meta property="og:description" content="윤루카스 AI가 판별해주는 재미있는 온도 테스트! 5번의 대화로 당신의 체온을 측정해보세요." />
+    <meta property="og:type" content="website" />
+  </Head>
     <div className="chat-container">
       <div className="chat-header">
         <button
@@ -201,7 +210,7 @@ export default function LucasTemperature() {
             className="object-cover"
           />
         </div>
-        <h1 className="chat-title">온 판별기</h1>
+        <h1 className="chat-title">온도 판별기</h1>
         <p className="chat-description">
           윤루카스님의 유튜브 영상을 학습한 루카스봇이<br />
           5번의 대화 안에 당신이 몇 도인지 판별 해드립니다.
@@ -300,5 +309,6 @@ export default function LucasTemperature() {
         // />
       )}
     </div>
+    </>
   );
 }
