@@ -267,19 +267,12 @@ export default function Yoon() {
             홈으로 가기 🏠
           </button>
           <div className="profile-yoon">
-            <video
-              ref={videoRef}
-              src={currentVideo}
+            <Image
+              src="/images/yoon2.gif"
+              alt="윤석열"
               width={200}
               height={200}
               className="object-cover"
-              onEnded={() => {
-                setPlayVideo(false);
-                if (videoRef.current) {
-                  videoRef.current.currentTime = 0;
-                }
-              }}
-              muted
             />
           </div>
           <h1 className="chat-title">윤석열 계엄 청문회</h1>
