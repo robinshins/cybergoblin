@@ -20,6 +20,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       endpoint = 'chat/';
     } else if (path[0] === 'judge') {
       endpoint = 'judge/';
+    } else if (path[0] === 'yoon_chat') {
+      endpoint = 'yoon_chat/';
+    } else if (path[0] === 'yoon_judge') {
+      endpoint = 'yoon_judge/';
     } else {
       return res.status(404).json({ error: '잘못된 엔드포인트입니다.' });
     }

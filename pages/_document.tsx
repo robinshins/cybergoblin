@@ -8,6 +8,7 @@ export default function Document() {
           name="viewport" 
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
+        
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-MV26KFG2WF"
@@ -35,6 +36,8 @@ export default function Document() {
             object-src 'none'
           "
         />
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2077902786597790"
+          crossOrigin="anonymous"></script>
       </Head>
       <body>
         <Main />

@@ -1,4 +1,6 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import Link from 'next/link';
 import styles from './PostNavigation.module.css';
 
@@ -30,7 +32,7 @@ interface PostNavigationProps {
 
 const PostNavigation: React.FC<PostNavigationProps> = ({ currentPostId }) => {
   const postsPerPage = 10;
-  const currentPage = currentPostId === 0 ? 1 : Math.ceil(currentPostId / postsPerPage);
+  const [currentPage, setCurrentPage] = useState(currentPostId === 0 ? 1 : Math.ceil(currentPostId / postsPerPage));
   const totalPages = Math.ceil(posts.length / postsPerPage);
   
   const startIndex = (currentPage - 1) * postsPerPage;
@@ -57,31 +59,31 @@ const PostNavigation: React.FC<PostNavigationProps> = ({ currentPostId }) => {
 
       <div className={styles.pagination}>
         {currentPage > 1 && (
-          <Link 
-            href={`/posts/post${(currentPage - 2) * postsPerPage + 1}`}
+          <button 
+            onClick={() => setCurrentPage(currentPage - 1)}
             className={styles.pageLink}
           >
             이전
-          </Link>
+          </button>
         )}
         
         {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
-          <Link
+          <button
             key={page}
-            href={`/posts/post${(page - 1) * postsPerPage + 1}`}
+            onClick={() => setCurrentPage(page)}
             className={`${styles.pageLink} ${currentPage === page ? styles.activePage : ''}`}
           >
             {page}
-          </Link>
+          </button>
         ))}
 
         {currentPage < totalPages && (
-          <Link 
-            href={`/posts/post${currentPage * postsPerPage + 1}`}
+          <button 
+            onClick={() => setCurrentPage(currentPage + 1)}
             className={styles.pageLink}
           >
             다음
-          </Link>
+          </button>
         )}
       </div>
     </nav>

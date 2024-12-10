@@ -47,6 +47,14 @@ html, body {
   margin-bottom: 3rem;
 }
 
+.danho-button {
+  background-color: #E6F0FF;
+}
+
+.yeouido-button {
+  background-color: #E6FFE6;
+} 
+
 .social-icon {
   width: 24px;
   height: 24px;

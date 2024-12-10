@@ -34,7 +34,7 @@ export default function Home() {
           사이버도깨비 클럽
         </h1>
         <p className="site-description">
-          사이버도깨비가 만드는 장난감들을 체험할 수 있는 공간입니다.
+          사이버도깨비가 만드는 AI 장난감들을 체험할 수 있는 공간입니다.
         </p>
       </header>
 
@@ -63,11 +63,12 @@ export default function Home() {
       </nav>
 
       <section className="chat-buttons" aria-label="AI 챗봇 목록">
-        {['chat1', 'chat2', 'chat3'].map((chatId, index) => (
+        {['chat1', 'chat2', 'chat3', 'chat4'].map((chatId, index) => (
           <a 
             href={
-              index === 0 ? '/chats/lucas-temperature' :
-              index === 1 ? '/chats/lucas-gay' : '/chats/dogman'
+              index === 0 ? '/chats/yoon' :
+              index === 1 ? '/chats/dogman' :
+              index === 2 ? '/chats/lucas-temperature' : '/chats/lucas-gay'
             } 
             className={`chat-card chat-card-${index + 1} hover-effect`}
             key={chatId}
@@ -75,21 +76,24 @@ export default function Home() {
             <div className="chat-image-wrapper">
               <img 
                 src={`/images/${
-                  index === 0 ? 'lucas.jpg' :
-                  index === 1 ? '윤루카스게이.webp' : '민희진.jpg'
+                  index === 0 ? 'yoon1.gif' :
+                  index === 1 ? '민희진.jpg' :
+                  index === 2 ? 'lucas.jpg' : '윤루카스게이.webp'
                 }`} 
                 alt={`Chat ${index + 1}`} 
-                className="chat-image"
+                className={`chat-image ${index === 0 ? 'gif-image' : ''}`}
               />
             </div>
             <div className="chat-content">
               <h2 className="chat-title">
-                {index === 0 ? '윤루카스 온도 계산봇' :
-                index === 1 ? '윤루카스 게이 판별봇' : '민희진 개저씨 판별봇'}
+                {index === 0 ? '윤석열 계엄 청문회' :
+                index === 1 ? '민희진 개저씨 판별봇' :
+                index === 2 ? '윤루카스 온도 계산봇' : '윤루카스 게이 판별봇'}
               </h2>
               <p className="chat-description">
-                {index === 0 ? '차가운 윤루카스가 당신이 몇도인지 알려줍니다.' :
-                index === 1 ? '절대 게이가 아닌 윤루카스가 당신이 게이인지 알려줍니다.' : '민희진이 당신이 개저씨인지 알려줍니다.'}
+                {index === 0 ? '석열봇과 계엄에 대한 이야기를 나눠보세요.' :
+                index === 1 ? '민희진이 당신이 개저씨인지 알려줍니다.' :
+                index === 2 ? '차가운 윤루카스가 당신이 몇도인지 알려줍니다.' : '절대 게이가 아닌 윤루카스가 당신이 게이인지 알려줍니다.'}
               </p>
             </div>
           </a>
@@ -100,7 +104,6 @@ export default function Home() {
         <h2 className="gpts-title">GPTs 리스트</h2>
         <p className="gpts-description">
           도깨비가 만든 GPTs로 놀아보세요.<br />
-          5.30일부터 모든 사용자에게 무료로 공개되었어요!
         </p>
 
         <div className="gpts-buttons">
@@ -124,6 +127,27 @@ export default function Home() {
             <h3>코인투자 전문가</h3>
             <p>코인 차트를 캡쳐해서 첨부하면,<br />
                목표 매수/매도가는 물론 stop loss 가격까지 조언해줍니다.</p>
+          </a>
+
+          <a 
+            href="https://chatgpt.com/g/g-IFaG1eMvP-danhobos" 
+            className="gpt-button danho-button"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <h3>단호봇</h3>
+            <p>팩트만으로 사람들에게 단호한 조언을 합니다.</p>
+          </a>
+
+          <a 
+            href="https://chatgpt.com/g/g-erxYVNpBY-yeoyidoalpago" 
+            className="gpt-button yeouido-button"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <h3>여의도알파고</h3>
+            <p>플라톤,공자 등 고대 사상가부터 존스튜어트 밀에 이르기까지<br />
+               다양한 기본 정치/철학 저서에 기반하여 정치이슈에 대해서 판단을 내려줍니다.</p>
           </a>
         </div>
       </section>

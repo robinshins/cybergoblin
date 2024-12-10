@@ -27,12 +27,24 @@ body {
   padding-top: 20px;
 }
 
-.profile-image {
-  width: 96px;
-  height: 96px;
+.profile-yoon {
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   overflow: hidden;
   margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.profile-yoon video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.5);
 }
 
 .chat-title {
@@ -151,18 +163,21 @@ body {
 
 .modal-content {
   background-color: white;
-  border-radius: 1rem;
+  border-radius: 1.5rem;
   padding: 2rem;
+  padding-top: 3rem;
   width: 100%;
   max-width: 32rem;
   text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  position: relative;
+  margin: 2rem;
 }
 
 .modal-title {
-  font-size: 1.5rem;
+  margin-top: 1rem;
+  font-size: 1.8rem;
   font-weight: 700;
-  margin-bottom: 1rem;
   color: #1a1a1a;
 }
 
@@ -180,6 +195,25 @@ body {
   margin-bottom: 2rem;
   white-space: pre-wrap;
   text-align: left;
+}
+
+.judgment-video {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: -60px auto 20px;
+  border: 4px solid white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  background-color: #f5f5f5;
+}
+
+.result-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.2);
 }
 
 .restart-button {
@@ -279,4 +313,36 @@ body {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transform: translateY(-1px);
   color: #2d3748;
+}
+
+.close-button {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+  padding: 5px;
+}
+
+.close-button:hover {
+  color: #000;
+}
+
+.view-result-button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #fde047;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  color: black;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.view-result-button:hover {
+  background-color: #fcd34d;
 } 
