@@ -86,12 +86,12 @@ export default function Home() {
             </div>
             <div className="chat-content">
               <h2 className="chat-title">
-                {index === 0 ? '윤석열 계엄 청문회' :
+                {index === 0 ? '윤석열 계엄 청문봇' :
                 index === 1 ? '민희진 개저씨 판별봇' :
                 index === 2 ? '윤루카스 온도 계산봇' : '윤루카스 게이 판별봇'}
               </h2>
               <p className="chat-description">
-                {index === 0 ? '석열봇과 계엄에 대한 이야기를 나눠보세요.' :
+                {index === 0 ? '석열봇과 비상계엄에 대한 이야기를 나눠보세요.' :
                 index === 1 ? '민희진이 당신이 개저씨인지 알려줍니다.' :
                 index === 2 ? '차가운 윤루카스가 당신이 몇도인지 알려줍니다.' : '절대 게이가 아닌 윤루카스가 당신이 게이인지 알려줍니다.'}
               </p>

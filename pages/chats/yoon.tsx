@@ -275,7 +275,7 @@ export default function Yoon() {
               className="object-cover"
             />
           </div>
-          <h1 className="chat-title">윤석열 계엄 청문회</h1>
+          <h1 className="chat-title">윤석열 계엄 청문봇</h1>
           <p className="chat-description">
             5번의 대화안에 석열봇으로부터 원하는 말을 들어보세요 <br/>
             석열봇은 대통령실 홈페이지의 '대통령의 말과 글' <br/>
