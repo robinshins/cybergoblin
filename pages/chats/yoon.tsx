@@ -252,9 +252,9 @@ export default function Yoon() {
   return (
     <>
       <Head>
-        <title>윤석열 계엄 청문회</title>
+        <title>윤석열 계엄 청문봇</title>
         <meta name="description" content="석열봇에게 무엇이든 물어보세요. 5번의 대화 이후 계엄에 대해서 석열봇이 스스로 판단을 내립니다." />
-        <meta property="og:title" content="윤석열 계엄 청문회" />
+        <meta property="og:title" content="윤석열 계엄 청문봇" />
         <meta property="og:description" content="석열봇에게 무엇이든 물어보세요. 5번의 대화 이후 계엄에 대해서 석열봇이 스스로 판단을 내립니다." />
         <meta property="og:type" content="website" />
       </Head>
