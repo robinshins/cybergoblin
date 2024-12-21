@@ -51,12 +51,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <head />
-      <body>
+      <head>
+        <script 
+          async 
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2077902786597790"
+          crossOrigin="anonymous"
+        />
+      </head>
+      <body suppressHydrationWarning={true}>
         <GoogleAnalytics />
-        <body suppressHydrationWarning={true}>
-          {children}
-        </body>
+        {children}
+        <Analytics />
       </body>
     </html>
   )
